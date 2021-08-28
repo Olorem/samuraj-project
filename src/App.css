@@ -1,0 +1,79 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+*,::before,::after {
+  box-sizing: border-box;
+}
+
+.App {
+  background-color: cadetblue;
+  min-width: 70vw;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
+.app-wrapper {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-areas:
+  "lsb wall rsb" 
+  "foot foot foot";
+  grid-template-columns: 4fr 8fr 4fr;
+  grid-template-rows: 1fr auto;
+  grid-gap: 40px;
+  background-color: #555;
+  width: 80vw;
+  min-height: 100vh;
+  margin-left: 10vw;
+  margin-top: 4vh;
+}
+
+.header {
+  height: 4vh;
+  color: white;
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  padding: 0 2vw;
+}
+
+.header a:last-child {
+  position: absolute;
+  right: 0;
+}
+
+.header a {
+  width: 15%;
+  font-size: 2.3vh;
+  height: 100%;
+  cursor: pointer;
+  padding: 5px;
+}
+
+
+.header a:hover {
+  background-color: gray;
+}
+
+.left-side-bar {
+  grid-area: lsb;
+  background-color: bisque;
+  padding: 20px;
+}
+
+.right-side-bar {
+  grid-area: rsb;
+  background-color: rgb(98, 174, 204);
+  padding: 20px;
+}
+
+.App-link {
+  color: #61dafb;
+}

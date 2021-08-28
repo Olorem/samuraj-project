@@ -1,0 +1,22 @@
+.post {
+  border: 1px solid white;
+  max-width: 100%;
+  padding: 10px;
+}
+
+.header img{
+  width: 50px;
+  border-radius: 50%;
+}
+
+.header div {
+  display: inline;
+}
+
+.imgs img{
+  max-width: 100%;
+}
+
+.imgs {
+  overflow: hidden;
+}

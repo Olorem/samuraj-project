@@ -1,0 +1,9 @@
+.footer {
+  grid-area: foot;
+  color: white;
+  text-align: center;
+  border-top: 1px solid white;
+  /* min-height: 50px; */
+  background-color: brown;
+  padding: 10px;
+}

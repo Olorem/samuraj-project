@@ -1,0 +1,22 @@
+.dialogs {
+  background-color:rgb(185, 243, 185);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.users {
+  border-right: 1px solid white;
+  padding: 20px;
+}
+
+.user {
+
+}
+
+.messages {
+  padding: 20px;
+}
+
+.message {
+
+}
