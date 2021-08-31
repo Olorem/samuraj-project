@@ -12,6 +12,7 @@ a {
   min-width: 70vw;
   overflow: hidden;
   font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
 }
 
 .app-wrapper {
@@ -22,11 +23,12 @@ a {
   "foot foot foot";
   grid-template-columns: 4fr 8fr 4fr;
   grid-template-rows: 1fr auto;
-  grid-gap: 40px;
+  grid-gap: 50px;
   background-color: #555;
-  width: 80vw;
+  width: 70vw;
   min-height: 100vh;
-  margin-left: 10vw;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 4vh;
 }
 
@@ -70,7 +72,7 @@ a {
 
 .right-side-bar {
   grid-area: rsb;
-  background-color: rgb(98, 174, 204);
+  background-color: bisque;
   padding: 20px;
 }
 

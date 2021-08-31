@@ -9,16 +9,16 @@ import Dialogs from './Dialogs/Dialogs';
 
 
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
         <div className="app-wrapper">
         <LeftSideBar />
-        <Route path="/profile" component={Profile}/>
+        <Route path="/profile" render={() => <Profile postsD={props.postsD}/>}/>
         {/* <Route path="/home" component={Home}/> */}
-        <Route path="/dialogs" component={Dialogs}/>
+        <Route path="/dialogs" render={() => <Dialogs messagesD={props.messagesD} usersD={props.usersD} />}/>
         <RightSideBar />
         <Footer />
         </div>

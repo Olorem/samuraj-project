@@ -1,21 +1,26 @@
-import style from "./Dialogs.module.css"
 
-const Dialogs = () => {
+import style from "./Dialogs.module.css"
+import DialogItem from "./DialogItem/DialogItem"
+import Message from "./Message/Message";
+
+// const testMessages = [['whats up', 'how is ur site?', 'ayooooooooo'],
+// ['pepega lulw', 'kekw', 'omegalul'],
+// ['lorem ipsum dolor sit amet', 'amen'],
+// ['"few messages"'],
+// ['konichiwa', 'kawai', 'baka'],
+// ['this is the last one, nobody cares about last one']];
+
+
+
+
+const Dialogs = (props) => {
   return(
     <div className={style.dialogs}>
       <div className={style.users}>
-        <div className={style.user}>Sanya</div>
-        <div className={style.user}>Vadim</div>
-        <div className={style.user}>Oleg</div>
-        <div className={style.user}>Tolik</div>
-        <div className={style.user}>Naruto</div>
-        <div className={style.user}>Kuplinov</div>
+        { props.usersD.map((u) => <DialogItem name={u.name} id={u.id} />)}
       </div>
       <div className={style.messages}>
-        <div className={style.message}>Hi</div>
-        <div className={style.message}>lets go play some valorant</div>
-        <div className={style.message}>ayooooooooo</div>
-        <div className={style.message}>ill wait u in ts</div>
+        {props.messagesD.map((m) => <Message content={m.content} user={m.user}/>)}
       </div>
     </div>
   );

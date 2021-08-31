@@ -2,5 +2,12 @@
     grid-area: wall;
     background-color:rgb(185, 243, 185);
     padding: 15px;
+    line-height: 22px;
+    word-spacing: 3px;
+}
+
+.posts{
+    display: flex;
+    flex-direction: column;
 }
 

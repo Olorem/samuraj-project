@@ -4,6 +4,10 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.dialogs a {
+  color: black;
+}
+
 .users {
   border-right: 1px solid white;
   padding: 20px;
@@ -15,8 +19,4 @@
 
 .messages {
   padding: 20px;
-}
-
-.message {
-
 }

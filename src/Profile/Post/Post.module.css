@@ -4,14 +4,22 @@
   padding: 10px;
 }
 
+.header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .header img{
   width: 50px;
   border-radius: 50%;
+  margin-right: 20px;
 }
 
 .header div {
-  display: inline;
 }
+
+
 
 .imgs img{
   max-width: 100%;
