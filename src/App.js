@@ -9,16 +9,16 @@ import Dialogs from './Dialogs/Dialogs';
 
 
 
-function App(props) {
+function App({ state, addPost }) {
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
         <div className="app-wrapper">
         <LeftSideBar />
-        <Route path="/profile" render={() => <Profile postsD={props.postsD}/>}/>
+        <Route path="/profile" render={() => <Profile postsD={state.profilePage.postsD} addPost={addPost}/>}/>
         {/* <Route path="/home" component={Home}/> */}
-        <Route path="/dialogs" render={() => <Dialogs messagesD={props.messagesD} usersD={props.usersD} />}/>
+        <Route path="/dialogs" render={() => <Dialogs messagesD={state.dialogsPage.messagesD} usersD={state.dialogsPage.usersD} />}/>
         <RightSideBar />
         <Footer />
         </div>

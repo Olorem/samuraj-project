@@ -7,8 +7,13 @@ a {
   box-sizing: border-box;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   min-width: 70vw;
   overflow: hidden;
   font-family: "Roboto", sans-serif;
@@ -21,15 +26,14 @@ a {
   grid-template-areas:
   "lsb wall rsb" 
   "foot foot foot";
-  grid-template-columns: 4fr 8fr 4fr;
+  grid-template-columns: 4fr 10fr 4fr;
   grid-template-rows: 1fr auto;
-  grid-gap: 50px;
-  background-color: #555;
+  grid-gap: 30px;
+  /* background-color: #555; */
   width: 70vw;
+  min-width: 1200px;
   min-height: 100vh;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 4vh;
+  margin: 6vh auto 0;
 }
 
 .header {
@@ -44,6 +48,7 @@ a {
   top: 0;
   width: 100vw;
   padding: 0 2vw;
+  z-index: 1;
 }
 
 .header a:last-child {
@@ -67,13 +72,15 @@ a {
 .left-side-bar {
   grid-area: lsb;
   background-color: bisque;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .right-side-bar {
   grid-area: rsb;
   background-color: bisque;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-link {

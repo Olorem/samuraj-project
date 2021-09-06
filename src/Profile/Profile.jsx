@@ -1,15 +1,26 @@
 import Post from "./Post/Post"
 import styles from "./Profile.module.css"
-import { useState } from "react";
+import React, { useEffect } from "react";
 
 const Profile = (props) => {
-
   // const [post, setPost]
+
+  const postAddHandler = (e) => {
+    e.preventDefault();
+    // console.log(e.target[0].value);
+    let text = e.target[0].value;
+    props.addPost({postText: text});
+  }
+
+  let inputRef = React.createRef();
 
   return (
   <div className={styles.profile}>
-      <form className="postingForm">
-        <input type="text" />
+      <form 
+        className="postingForm"
+        onSubmit={postAddHandler}
+      >
+        <input type="text" ref={inputRef}/>
         <button className="share">Share</button>
       </form>
       <div className={styles.posts}>
