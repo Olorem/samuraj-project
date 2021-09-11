@@ -1,10 +1,12 @@
 a {
   text-decoration: none;
-  color: white;
+  color: black  ;
 }
 
 *,::before,::after {
   box-sizing: border-box;
+  transition: 0.4s;
+  margin: 0;
 }
 
 ul {
@@ -13,11 +15,11 @@ ul {
 }
 
 .App {
-  /* background-color: cadetblue; */
-  min-width: 70vw;
   overflow: hidden;
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
+  background-color: #f1f1f1;
+  width: 100vw;
 }
 
 .app-wrapper {
@@ -26,61 +28,72 @@ ul {
   grid-template-areas:
   "lsb wall rsb" 
   "foot foot foot";
-  grid-template-columns: 4fr 10fr 4fr;
+  grid-template-columns: 250px 1fr 250px;
   grid-template-rows: 1fr auto;
-  grid-gap: 30px;
-  /* background-color: #555; */
-  width: 70vw;
-  min-width: 1200px;
+  width: 1150px;
+  gap: 30px;
   min-height: 100vh;
-  margin: 6vh auto 0;
+  margin: 80px auto 0;
 }
 
-.header {
-  height: 4vh;
-  color: white;
-  background-color: #282c34;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
+.headerWrapper {
   position: fixed;
   top: 0;
   width: 100vw;
-  padding: 0 2vw;
   z-index: 1;
+  box-shadow: 0px 1px 15px 0px rgb(51 51 51 / 20%);
+  background-color: #fff;
+}
+
+.header {
+  padding: 15px 0;
+  width: 1150px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* text-align: center; */
+  position: relative;
 }
 
 .header a:last-child {
   position: absolute;
+  text-align: end;
   right: 0;
 }
 
+.header a:first-child { color: #cc3724;}
+
 .header a {
   width: 15%;
-  font-size: 2.3vh;
-  height: 100%;
-  cursor: pointer;
-  padding: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 5px 0;
 }
 
 
 .header a:hover {
-  background-color: gray;
+  color: #cc3724;
 }
 
 .left-side-bar {
   grid-area: lsb;
-  background-color: bisque;
+  /* width: 250px; */
+  /* background-color: bisque; */
   display: flex;
   flex-direction: column;
 }
 
 .right-side-bar {
   grid-area: rsb;
-  background-color: bisque;
+  /* width: 250px; */
+  /* background-color: bisque; */
   display: flex;
   flex-direction: column;
+}
+
+.ad img{
+  margin: auto;
 }
 
 .App-link {

@@ -12,7 +12,7 @@ const Post = (props) => {
           <div>{props.timeAgo}</div>
         </div>
       </div>
-      <div>{props.postText}</div>
+      <div className={styles.text}>{props.postText}</div>
       <div className={styles.imgs}>
         <img src="https://htmldemo.hasthemes.com/adda/adda/assets/images/banner/profile-banner.jpg" alt="banner" />
       </div>

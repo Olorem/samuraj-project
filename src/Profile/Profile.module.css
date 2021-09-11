@@ -1,9 +1,48 @@
 .profile {
     grid-area: wall;
-    background-color:rgb(185, 243, 185);
-    padding: 15px;
+    margin: auto;
+    /* background-color:rgb(185, 243, 185); */
     line-height: 22px;
     word-spacing: 3px;
+}
+
+.form {
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: row;
+    border-radius: 1000px;
+    overflow: hidden;
+    height: 50px;
+    margin-bottom: 30px;
+    padding: 5px;
+    box-shadow: 1px 1px 10px rgba(55,55,55, 30%) inset;
+}
+
+.form * {
+    border: none;
+    background-color: transparent;
+}
+
+.form .input{
+    width: 100%;
+    border-radius: 100px;
+    padding: 20px;
+    color: gray;
+}
+
+.form .input:focus-visible {
+    border: none;
+    outline: none;
+    border-style: none;
+}
+
+.form button {
+    width: 100px;
+    border-radius: 100px;
+    background-color: #dc4734;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
 .posts{

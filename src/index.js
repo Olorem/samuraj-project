@@ -1,16 +1,30 @@
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import {state, addPost} from './BLL/state'
-import renderWholeTree from './render';
+import store from "./BLL/store";
+import React from 'react';
+import reactDom from 'react-dom';
+import App from './App';
 
-addPost({
+store.addPost({
   id: 5,
   username: "Alesha",
   timeAgo: "1 day ago",
   postText: 'pepeginio the frog',
 });
 
-renderWholeTree(state);
+const renderWholeTree = () => {
+  reactDom.render(
+    <React.StrictMode>
+      {/* <App state={store._state} addPost={store.addPost} inputChangeHandler={store.inputChangeHandler}/> */}
+      <App store={store} />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+}
+
+store.subscribe(renderWholeTree);
+
+renderWholeTree();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
