@@ -5,18 +5,21 @@ import React from 'react';
 import reactDom from 'react-dom';
 import App from './App';
 
-store.addPost({
-  id: 5,
-  username: "Alesha",
-  timeAgo: "1 day ago",
-  postText: 'pepeginio the frog',
+store.dispatch({
+  type: "ADD-POST", 
+  post: {
+    id: 5,
+    username: "Alesha",
+    timeAgo: "1 day ago",
+    postText: 'pepeginio the frog',
+  }
 });
 
 const renderWholeTree = () => {
   reactDom.render(
     <React.StrictMode>
       {/* <App state={store._state} addPost={store.addPost} inputChangeHandler={store.inputChangeHandler}/> */}
-      <App store={store} />
+      <App state={ store.getState() } dispatch={ store.dispatch.bind(store) }  />
     </React.StrictMode>,
     document.getElementById('root')
   );

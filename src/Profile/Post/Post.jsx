@@ -14,7 +14,7 @@ const Post = (props) => {
       </div>
       <div className={styles.text}>{props.postText}</div>
       <div className={styles.imgs}>
-        <img src="https://htmldemo.hasthemes.com/adda/adda/assets/images/banner/profile-banner.jpg" alt="banner" />
+        <img src="https://htmldemo.hasthemes.com/adda/adda/assets/images/post/post-1.jpg" alt="banner" />
       </div>
     </div>
   );

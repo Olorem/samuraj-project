@@ -1,7 +1,7 @@
 cards {
-  sweet memories,
-  friends,
-  avaDesc
+  avaDesc {
+    font
+  }
 }
 
 header {
@@ -10,10 +10,35 @@ header {
   module
 }
 
-input
+styles refactor
+
+dialogs
+
+or 
 
 50 lvl
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-deadline 13.09.21
+deadline doesnt work for me :(
+
+
+
+
+
+
+dialogsPage: {
+  usersD: [{name: 'Valera', id: 0}, {name: 'Vadim', id: 1}, {name: 'Oleg', id: 2},{name: 'Tolik', id: 3},{name: 'Naruto', id: 4},{name:'Kuplinov', id: 5},],
+  messagesD: [{user: 'Valera', content: 'Hi'}, {user: 'Me', content: 'Hi'},  {user: 'Valera', content: 'keks go play some valo'}, {user: 'Me', content: 'ok'}],
+},
+
+dialogsPage: {
+  dialogs: [
+    {name: 'Valera', id: 0, messages: [{user: 'Valera', content: 'HiVal'}, {user: 'Me', content: 'Hi'},  {user: 'Valera', content: 'keks go play some valo1'}, {user: 'Me', content: 'ok'}]}, 
+    {name: 'Vadim', id: 1}, messages: [{user: 'Vadim', content: 'HiVad'}, {user: 'Me', content: 'Hi'},  {user: 'Vadim', content: 'keks go play some valo2'}, {user: 'Me', content: 'ok'}]},
+    {name: 'Oleg', id: 2}, messages: [{user: 'Oleg', content: 'HiO'}, {user: 'Me', content: 'Hi'},  {user: 'Oleg', content: 'keks go play some valo3'}, {user: 'Me', content: 'ok'}] },
+    {name: 'Tolik', id: 3}, messages: [{user: 'Tolik', content: 'HiT'}, {user: 'Me', content: 'Hi'},  {user: 'Tolik', content: 'keks go play some valo4'}, {user: 'Me', content: 'ok'}] },
+    {name: 'Naruto', id: 4}, messages: [{user: 'Naruto', content: 'HiN'}, {user: 'Me', content: 'Hi'},  {user: 'Naruto', content: 'keks go play some valo5'}, {user: 'Me', content: 'ok'}] },
+    {name: 'Kuplinov', id: 5}, messages: [{user: 'Kuplinov', content: 'HiK'}, {user: 'Me', content: 'Hi'},  {user: 'Kuplinov', content: 'keks go play some valo6'}, {user: 'Me', content: 'ok'}] },
+  ],
+},

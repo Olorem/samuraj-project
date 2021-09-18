@@ -13,14 +13,18 @@
 
 .item {
   display: flex;
-  /* align-items: center; */
+  position: relative;
   margin-top: 25px;
+}
+
+.item2 {
+  align-items: center;
 }
 
 .card h4 {
   font-size: 18px;
   margin-bottom: 40px;
-
+  font-weight: 700;
 }
 
 .card h4::after {
@@ -33,11 +37,28 @@
   left: 25px;
 }
 
-.item img{
+.item .img{
   height: 35px;
   width: 35px;
   border-radius: 100%;
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.heart {
+  position: absolute;
+  right: 0;
+  background-image: url("https://htmldemo.hasthemes.com/adda/adda/assets/images/icons/heart.png");
+  min-width: 21px;
+  min-height: 19px;
+  filter: invert() opacity(25%);
+  transition: cubic-bezier(1, 0, 0, 0) 1s;
+}
+
+.heart:hover {
+  background-image: url("https://htmldemo.hasthemes.com/adda/adda/assets/images/icons/heart-color.png");
+  filter: none;
+  transition: none;
 }
 
 

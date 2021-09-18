@@ -1,8 +1,12 @@
 import Post from "./Post/Post"
 import styles from "./Profile.module.css"
 import React from "react";
+import { addPostActionCreator, inputChangeActionCreator } from "../BLL/store";
 
-const Profile = (props) => {
+  
+
+
+const Profile = ({ profilePage, dispatch }) => {
   // const [post, setPost]
 
   const postAddHandler = (e) => {
@@ -10,27 +14,35 @@ const Profile = (props) => {
     // console.log(e.target[0].value);
     let text = e.target[0].value;
     e.target[0].value = '';
-    props.addPost({postText: text});
+    dispatch( addPostActionCreator(text) );
+  }
+
+  const inputChange = (e) => {
+    dispatch( inputChangeActionCreator(e) )
   }
 
   let inputRef = React.createRef();
   return (
   <div className={styles.profile}>
+      
       <form 
-        className={styles.form}
+        className={styles.formWrap}
         onSubmit={postAddHandler}
       >
-        <input 
-          value={props.state.profilePage.inputTemp} 
-          ref={inputRef}
-          onChange={props.inputChangeHandler.bind(props)}
-          className={styles.input}
-          placeholder="I am a samuraj"
-        />
-        <button className="share">Share</button>
+        <img src="https://htmldemo.hasthemes.com/adda/adda/assets/images/profile/profile-small-37.jpg" alt="profile" />
+        <div className={styles.form}>
+          <input
+            value={profilePage.inputTemp} 
+            ref={inputRef}
+            onChange={ inputChange }
+            className={styles.input}
+            placeholder="I am a samuraj"
+          />
+          <button className="share">Share</button>
+        </div>
       </form>
       <div className={styles.posts}>
-        {props.state.profilePage.postsD.map((p) => <Post username={p.username} timeAgo={p.timeAgo} postText={p.postText}/>)}
+        {profilePage.postsD.map((p) => <Post username={p.username} timeAgo={p.timeAgo} postText={p.postText}/>)}
       </div>
   </div>
   );

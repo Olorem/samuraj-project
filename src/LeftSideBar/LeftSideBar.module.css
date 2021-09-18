@@ -6,7 +6,7 @@
   margin-bottom: 30px;
   padding: 25px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 22px;
   box-shadow: 0px 1px 15px 0px rgb(51 51 51 / 20%);
   position: relative;
 }
@@ -24,9 +24,83 @@
   position: absolute;
   top: 55px;
   left: 25px;
+  pointer-events: none;
 }
 
 .claster {
   margin-top: 25px;
 }
 
+.memories {
+  margin-top: 30px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 70px 70px 70px;
+  grid-template-rows: 70px 70px 70px;
+}
+
+/* .memories > div {} */
+
+.memories img {
+  border-radius: 4px;
+}
+
+/* .ava img{
+  border: 10px solid white;
+  box-sizing: content-box;
+  width: 100%;
+  margin-bottom: 30px;
+} */
+
+.ava {
+  padding: 0;
+}
+
+.ava .banner{
+  width: 100%;
+  position: relative;
+  /* outline: 20px inset rgba(51, 51, 51, 0.2) ; */
+}
+
+.ava .banner::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  border: 10px solid rgba(198, 165, 107, 0.3);
+}
+
+.ava .description {
+  position: relative;
+
+}
+
+.ava .profile{
+  border-radius: 100px;
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.ava .subtitle {
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+  padding: 30px;
+  padding-top: 50px;
+
+}
+
+.ava h6 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #333;
+}
+
+.ava .description p {
+  padding-top: 10px;
+}

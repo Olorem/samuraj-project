@@ -10,16 +10,16 @@ import Dialogs from './Dialogs/Dialogs';
 
 
 // function App({ state, addPost, inputChangeHandler }) {
-  function App({ store }) {
+  function App({ state, dispatch }) {
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
         <div className="app-wrapper">
         <LeftSideBar />
-        <Route path="/profile" render={() => <Profile state={store.getState()} addPost={store.addPost.bind(store)} inputChangeHandler={store.inputChangeHandler.bind(store)} />}/>
+        <Route path="/profile" render={() => <Profile profilePage={state.profilePage} dispatch={dispatch} />}/>
         {/* <Route path="/home" component={Home}/> */}
-        <Route path="/dialogs" render={() => <Dialogs messagesD={store._state.dialogsPage.messagesD} usersD={store._state.dialogsPage.usersD} />}/>
+        <Route path="/dialogs" render={() => <Dialogs dialogsPage={state.dialogsPage} dispatch={dispatch} />}/>
         <RightSideBar />
         <Footer />
         </div>
