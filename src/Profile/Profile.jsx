@@ -1,7 +1,7 @@
 import Post from "./Post/Post"
 import styles from "./Profile.module.css"
 import React from "react";
-import { addPostActionCreator, inputChangeActionCreator } from "../BLL/store";
+import { addPostActionCreator, inputChangeActionCreator } from "../BLL/profileReducer";
 
   
 

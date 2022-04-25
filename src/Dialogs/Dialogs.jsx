@@ -3,7 +3,7 @@ import style from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogItem"
 import Message from "./Message/Message";
 import React from "react";
-import { addMessageActionCreator, textChangeActionCreator } from "../BLL/store";
+import { addMessageActionCreator, textChangeActionCreator } from "../BLL/dialogsReducer";
 
 // const testMessages = [['whats up', 'how is ur site?', 'ayooooooooo'],
 // ['pepega lulw', 'kekw', 'omegalul'],

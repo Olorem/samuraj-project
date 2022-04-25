@@ -1,6 +1,11 @@
+import { useState } from "react";
 import style from "./LeftSideBar.module.css"
 
 const LeftSideBar = () => {
+
+  const [currentData, setCurrentData] = useState('error');
+  setInterval(() => setCurrentData(new Date().toLocaleString()), 1000);
+
   return (
     <div className='left-side-bar'>
       <div className={style.card + " " + style.ava}>
@@ -42,7 +47,8 @@ const LeftSideBar = () => {
       </div>
       <div className={style.card}>
         <h4>Page You May Like</h4>
-        { setInterval(() => new Date().toLocaleString(), 1000) }
+        
+        { currentData }
       </div>
     </div>
   );

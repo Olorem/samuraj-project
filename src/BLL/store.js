@@ -1,39 +1,10 @@
-const PROFILE_INPUT_CHANGE = "PROFILE-INPUT-CHANGE";
-const DIALOGS_INPUT_CHANGE = "DIALOGS_INPUT_CHANGE";
-const ADD_POST = "ADD-POST";
-const ADD_MESSAGE = "ADD-MESSAGE";
+import { dialogsReducer } from "./dialogsReducer";
+import { profileReducer } from "./profileReducer";
 
-export const addPostActionCreator = (text) => (
-  {
-    type: ADD_POST,
-    post: {
-      postText: text
-    }
-  }
-);
+//
+// not in use. Project currently working with redux-store.js
+//
 
-export const inputChangeActionCreator = (e) => (
-  {
-    type: PROFILE_INPUT_CHANGE,
-    e: e
-  }
-);
-
-export const addMessageActionCreator = (u, c, id) => (
-  {
-    type: ADD_MESSAGE,
-    user: u,
-    content: c,
-    id: id,
-  }
-);
-
-export const textChangeActionCreator = (e) => (
-  {
-    type: DIALOGS_INPUT_CHANGE,
-    e: e
-  }
-);
 
 let store = {
   _state: {
@@ -71,32 +42,10 @@ let store = {
   },
 
   dispatch(action) {
-    if(action.type === ADD_POST) {
-      let newPost = {
-        id: action.post.id || 10,
-        username: action.post.username || "vasyan",
-        timeAgo: action.post.timeAgo || "rn",
-        postText: action.post.postText || "bruh",
-      };
-      this._state.profilePage.postsD.push(newPost);
-      this._state.profilePage.inputTemp = "";
-      this._subscriber();
-    } else if(action.type === PROFILE_INPUT_CHANGE) {
-      this._state.profilePage.inputTemp = action.e.target.value;
-      // e.target.value = '';
-      this._subscriber();
-    } else if (action.type === ADD_MESSAGE) {
-      let newMessage = {
-        user: action.user || 'Me',
-        content: action.content || 'bruh u posted cringe'
-      };
-      this._state.dialogsPage.dialogs[action.id || 0].messages.push(newMessage);
-      this._state.dialogsPage.inputTemp = "";
-      this._subscriber();
-    } else if (action.type === DIALOGS_INPUT_CHANGE) {
-      this._state.dialogsPage.inputTemp = action.e.target.value;
-      this._subscriber();
-    }
+    profileReducer(this._state.profilePage, action);
+    dialogsReducer(this._state.dialogsPage, action);
+    //...
+    this._subscriber();
   }
 }
 
