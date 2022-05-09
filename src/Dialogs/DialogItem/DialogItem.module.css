@@ -1,4 +1,41 @@
 .dialogItem {
-  font-size: 1.2rem;
   line-height: 1.5rem;
+  padding-inline: 30px;
+  padding-block: 10px;
+  z-index: -1;
+  
+}
+
+.dialogItem:hover {
+  background-color: #dc4734;
+  box-shadow: 0px 2px 6px 0px rgb(34 60 80 / 20%);
+
+}
+
+.dialogItem:hover a {
+  color: white;
+
+}
+
+.current {
+  /* background-color: #dc4734; */
+  /* border: 1px solid #dc4734; border-right: none; box-sizing: border-box; */
+  /* background-color: #f1f1f1; */
+  border-right: none;
+  position: relative;
+  background-color: #f1f1f1;
+}
+
+.current::after {
+  content: '';
+  width: 10px;
+  height: 100%;
+  background-color: #f1f1f1;
+  position: absolute;
+  right: -9px;
+  top: 0;
+}
+
+.current a {
+
 }

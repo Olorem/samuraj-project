@@ -1,7 +1,12 @@
+/* rgb(68, 190, 255) */
+/* #dc4734 */
+
 .dialogs {
-  background-color:rgb(185, 243, 185);
+  background-color:white;
+  box-shadow: 0px 1px 15px 0px rgb(51 51 51 / 20%);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 3fr;
+  font-size: 14px;
 }
 
 .dialogs a {
@@ -9,8 +14,9 @@
 }
 
 .users {
-  border-right: 1px solid white;
-  padding: 20px;
+  z-index: 0;
+  /* border-right: 1px solid #dc4734; */
+  font-size: 16px;
 }
 
 .user {
@@ -19,4 +25,52 @@
 
 .messages {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+  background-color: #f1f1f1;
+  z-index: 1;
+}
+
+.messages :last-child{
+  align-self: flex-end;
+}
+
+.messages:hover + .users{
+  background-color: #555;
+}
+
+
+.messages form {
+  
+  width: 100%;
+  height: 50px;
+  display: block;
+  margin-top: 5px;
+  box-shadow:  0px 1px 5px 0px rgb(85 85 85 / 20%);
+
+}
+
+.messages form input {
+  text-decoration: none;
+  padding: 5px;
+  border: none;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  width: 80%;
+  height: 100%;
+  font-size: 16px;
+}
+
+.messages form button {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  padding: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  background-color: #dc4734;
+  color: #fff;
+  width: 20%;
+  height: 100%;
 }

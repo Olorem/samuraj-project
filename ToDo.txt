@@ -4,6 +4,10 @@ cards {
   }
 }
 
+rightSideBar {
+  likesState
+}
+
 header {
   input,
   grid,
@@ -17,6 +21,10 @@ dialogs
 or 
 
 50 lvl
+
+
+FontAwesomeIcons, ProfileContainer, DialogsContainer, Context, Styling, React-Redu
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -6,7 +6,7 @@ a {
 
 *,::before,::after {
   box-sizing: border-box;
-  transition: 0.4s;
+  transition: 0.3s;
   margin: 0;
 }
 
@@ -29,8 +29,9 @@ ul {
   overflow: hidden;
   font-family: "Roboto", sans-serif;
   /* font-size: 1.2rem; */
-  background-color: #aaaaaa; /* prod #f1f1f1 */
-  width: 100vw;
+  /* background-color: #aaaaaa; prod #f1f1f1 */
+  background-color: #f1f1f1; /* prod #f1f1f1 */
+  /* width: 100vw; */
 }
 
 .app-wrapper {
@@ -41,7 +42,7 @@ ul {
   "foot foot foot";
   grid-template-columns: 255px 1fr 255px;
   grid-template-rows: 1fr auto;
-  width: 1150px;
+  width: 1100px;
   gap: 30px;
   min-height: 100vh;
   margin: 80px auto 0;
@@ -50,15 +51,15 @@ ul {
 .headerWrapper {
   position: fixed;
   top: 0;
-  width: 100vw;
-  z-index: 1;
+  width: 100%;
+  z-index: 11;
   box-shadow: 0px 1px 15px 0px rgb(51 51 51 / 20%);
   background-color: #fff;
 }
 
 .header {
   padding: 15px 0;
-  width: 1150px;
+  width: 1100px;
   margin: auto;
   display: flex;
   flex-direction: row;

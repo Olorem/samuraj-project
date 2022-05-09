@@ -3,7 +3,6 @@ import style from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogItem"
 import Message from "./Message/Message";
 import React from "react";
-import { addMessageActionCreator, textChangeActionCreator } from "../BLL/dialogsReducer";
 
 // const testMessages = [['whats up', 'how is ur site?', 'ayooooooooo'],
 // ['pepega lulw', 'kekw', 'omegalul'],
@@ -15,30 +14,31 @@ import { addMessageActionCreator, textChangeActionCreator } from "../BLL/dialogs
 
 
 
-const Dialogs = ({ dialogsPage, dispatch }) => {
-  let textRef = React.createRef();
+const Dialogs = ({ dialogs, addMessage, inputTemp, inputChange }) => {
+  // let textRef = React.createRef();
 
   function submitHandler(e) {
+    
     e.preventDefault();
-    console.log(textRef.current.value);
-    dispatch(addMessageActionCreator("Me", textRef.current.value, 0))
+    // console.log(textRef.current.value);
+    console.log(e.target[0].value);
+    addMessage("Me", e.target[0].value, 0);
   }
 
   function textChangeHandler(e) {
-    dispatch( textChangeActionCreator(e) );
+    inputChange(e.target.value);
   }
 
   return(
     <div className={style.dialogs}>
       <div className={style.users}>
-        { dialogsPage.dialogs.map((item, index) => <DialogItem name={item.name} id={index} />)}
+        { dialogs.map((item, index) => <DialogItem name={item.name} id={index} />)}
       </div>
       <div className={style.messages}>
-        { dialogsPage.dialogs[0].messages.map((m) => <Message content={m.content} user={m.user}/>) }
+        { dialogs[0].messages.map((m) => <Message content={m.content} user={m.user}/>) }
         <form onSubmit={ submitHandler }>
           <input 
-          ref={textRef} 
-          value={dialogsPage.inputTemp}
+          value={inputTemp}
           onChange={ textChangeHandler } ></input>
           <button type="submit" >GG EZZ</button>
         </form>

@@ -1,38 +1,127 @@
 .post {
-  border: 1px solid white;
+  /* border: 1px solid white; */
   max-width: 100%;
-  padding: 25px;
+  padding: 30px;
   margin-bottom: 30px;
   background-color: white;
   box-shadow: 0px 1px 15px 0px rgb(51 51 51 / 20%);
-}
-
-.header{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 15px;
+
+  /* display: grid; */
+  /* grid-template-areas: 'hi ht ht ht ht ht ht ht ht ht ht ht' 'pc pc pc pc pc pc pc pc pc pc pc pc'; */
+  
 }
 
-.header img{
+
+.userpic {
   width: 50px;
-  border-radius: 50%;
-  margin-right: 18px;
-  border: 2px solid #dc4734;
+  margin-right: 20px;
 }
 
-.header div {
+.userpic img{
+  /* width: 50px; */
+  border-radius: 50%;
+  
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 20px;
+
+}
+
+.header .settings {
+  margin-left: auto;
+  cursor: pointer;
+  position: relative;
+}
+
+.header .settings .list {
+  position: absolute;
+  right: 0;
+  width: 200px;
+  background-color: #fff;
+  padding: 20px;
+  z-index: 9;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0px 1px 15px 0px rgb(51 51 51 / 20%);
+}
+
+.header .settings .list div {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  color: #333333;
+  font-weight: 500;
+  text-transform: capitalize;
+
+}
+
+.header .settings .list div:hover {
+  color: #dc4734;
+}
+
+.header .settings .list :last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.header .settings span {
+  width: 20px;
+  display: block;
+  margin-bottom: 5px;
+  border-bottom: 1px solid gray;
+  opacity: inherit;
+  visibility: inherit;
+  display: inherit;
+}
+
+.description {
+  grid-area: ht;
+}
+
+.description a:hover {
+  color:#dc4734;
 }
 
 .text {
-  margin-bottom: 18px;
-  font-size: 16px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #444444;
+
 }
 
 .imgs img{
   max-width: 100%;
+  width: 480px;
 }
 
 .imgs {
   overflow: hidden;
+  
+}
+
+.content {
+  grid-area: pc;
+  justify-self: center;
+}
+
+.username {
+  font-style: bold;
+}
+
+.timeAgo {
+  font-style: italic;
 }

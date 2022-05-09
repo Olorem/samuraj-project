@@ -1,6 +1,8 @@
 import { useState } from "react";
 import style from "./LeftSideBar.module.css"
 
+const tempStyleForIcons = {color: "#dc4734", opacity: '0.8', width: '1.5rem', height: '1.3rem'};
+
 const LeftSideBar = () => {
 
   const [currentData, setCurrentData] = useState('error');
@@ -10,10 +12,10 @@ const LeftSideBar = () => {
     <div className='left-side-bar'>
       <div className={style.card + " " + style.ava}>
         <div className={style.banner}>
-          <a href="#"><img src="https://htmldemo.hasthemes.com/adda/adda/assets/images/banner/banner-small.jpg" alt="banner" srcset="" /> </a>
+          <a href="#"><img src="https://htmldemo.hasthemes.com/adda/adda/assets/images/banner/banner-small.jpg" alt="banner" srcSet="" /> </a>
         </div>
         <div className={style.description}>
-          <img className={style.profile} src="https://htmldemo.hasthemes.com/adda/adda/assets/images/profile/profile-midle-1.jpg" alt="pic" srcset="" />
+          <img className={style.profile} src="https://htmldemo.hasthemes.com/adda/adda/assets/images/profile/profile-midle-1.jpg" alt="pic" srcSet="" />
           <div className={style.subtitle}> 
             <h6>Eric Jhonson</h6>
             <p>Any one can join with but Social network us if you want Any one can join with us if you want </p>
@@ -23,11 +25,11 @@ const LeftSideBar = () => {
       <div className={style.card}>
         <h4>Erik Jhonson</h4>
         <div className={style.claster}>I Don’t know how? But i believe that it is possible one day if i stay with my dream all time</div>
-        <div className={style.claster}>
-          <i className="bi bi-office-bag"></i><div>Web Developer</div>
-          <div>Melbourne, Australia</div>
-          <div>Pulshar, Melbourne</div>
-          <div>Travel, Swimming</div>
+        <div className={style.claster} >
+          <div><i className="fa fa-briefcase" style={tempStyleForIcons}></i> Web Developer</div>
+          <div><i className="fa fa-home" style={tempStyleForIcons}></i> Melbourne, Australia</div>
+          <div><i className="fa fa-location-dot" style={tempStyleForIcons}></i> Pulshar, Melbourne</div>
+          <div><i className="fa fa-heart" style={tempStyleForIcons}></i> Travel, Swimming</div>
         </div>
       </div>
       <div className={style.card}>

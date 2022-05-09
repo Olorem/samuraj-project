@@ -10,10 +10,10 @@ export const addMessageActionCreator = (u, c, id) => (
   }
 );
 
-export const textChangeActionCreator = (e) => (
+export const textChangeActionCreator = (text) => (
   {
     type: DIALOGS_INPUT_CHANGE,
-    e: e
+    text: text
   }
 );
 
@@ -42,7 +42,7 @@ export const dialogsReducer = (state = initStateDialogs, action) => {
     break;
     
     case DIALOGS_INPUT_CHANGE:
-      state.inputTemp = action.e.target.value;
+      state.inputTemp = action.text;
     break;
 
     default: break;

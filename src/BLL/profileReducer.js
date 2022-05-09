@@ -10,10 +10,10 @@ export const addPostActionCreator = (text) => (
   }
 );
 
-export const inputChangeActionCreator = (e) => (
+export const inputChangeActionCreator = (text) => (
   {
     type: PROFILE_INPUT_CHANGE,
-    e: e
+    text: text
   }
 );
 
@@ -41,7 +41,7 @@ export const profileReducer = (state = initStateProfile, action) => {
     break;
 
     case PROFILE_INPUT_CHANGE:
-      state.inputTemp = action.e.target.value;
+      state.inputTemp = action.text;
     break;
     
     default: break;

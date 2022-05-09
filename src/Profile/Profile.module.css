@@ -3,7 +3,6 @@
     margin: auto;
     /* background-color:rgb(185, 243, 185); */
     line-height: 22px;
-    word-spacing: 3px;
 }
 
 .formWrap {
@@ -15,6 +14,7 @@
     padding: 15px;
     font-size: 14px;
     background-color: #fff;
+    box-shadow: 0px 1px 15px 0px rgb(51 51 51 / 20%);
 }
 
 .formWrap img{
@@ -33,6 +33,7 @@
     padding: 5px;
     box-shadow: inset 0px 1px 10px 0px rgb(85 85 85 / 20%);
     background-color: #f1f1f1;
+    
 }
 
 .form * {
@@ -60,6 +61,11 @@
     color: #fff;
     text-transform: uppercase;
     font-size: 12px;
+}
+
+.form button:hover {
+    background-color:#333;
+    cursor: pointer;
 }
 
 .posts{

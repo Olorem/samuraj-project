@@ -1,3 +1,17 @@
 .message {
+  display: inline;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 20px;
+  background-color: #fff;
+  width: 250px;
+}
+
+
+.my {
+  align-self: end;
+  background-color: #dc4734;
+  color: white;
 
 }
+
