@@ -8,14 +8,13 @@ import App from './App';
 store.dispatch({
   type: "ADD-POST", 
   post: {
-    id: 5,
     username: "Alesha",
     timeAgo: "1 day ago",
     postText: 'pepeginio the frog',
   }
 });
 
-const renderWholeTree = () => {
+
   reactDom.render(
     <React.StrictMode>
       {/* <App state={store._state} addPost={store.addPost} inputChangeHandler={store.inputChangeHandler}/> */}
@@ -23,11 +22,10 @@ const renderWholeTree = () => {
     </React.StrictMode>,
     document.getElementById('root')
   );
-}
 
-store.subscribe(renderWholeTree);
+// store.subscribe(renderWholeTree);
 
-renderWholeTree();
+// renderWholeTree();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

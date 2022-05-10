@@ -27,6 +27,7 @@ const Dialogs = ({ dialogs, addMessage, inputTemp, inputChange }) => {
 
   function textChangeHandler(e) {
     inputChange(e.target.value);
+    
   }
 
   return(

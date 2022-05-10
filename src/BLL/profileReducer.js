@@ -30,14 +30,16 @@ export const profileReducer = (state = initStateProfile, action) => {
   switch(action.type) {
     case ADD_POST: 
       let newPost = {
-        id: action.post.id || 10,
+        // id: action.post.id || state.postsD[state.postsD.length - 1].id + 1,
+        id: action.post.id || state.postsD.length,
         username: action.post.username || "vasyan",
         timeAgo: action.post.timeAgo || "rn",
         postText: action.post.postText || "bruh",
       };
-      console.log(state);
-      state.postsD.push(newPost);
+      
+      state.postsD = [...state.postsD, newPost];
       state.inputTemp = "";
+      console.log(state.postsD);
     break;
 
     case PROFILE_INPUT_CHANGE:

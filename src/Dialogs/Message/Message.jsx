@@ -2,7 +2,7 @@ import style from "./Message.module.css"
 
 const Message = (props) => {
   return(
-    <div className={style.message + ' ' + (props.user =='Me' ? style.my: '')}>
+    <div className={style.message + ' ' + (props.user === 'Me' ? style.my: '')}>
       <span>
         {props.user }
       </span>

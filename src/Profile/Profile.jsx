@@ -11,10 +11,7 @@ const Profile = ({ inputTemp, inputChange, posts, postAdd }) => {
 
   const postAddHandler = (e) => {
     e.preventDefault();
-    // console.log(e.target[0].value);
-    let text = e.target[0].value;
-    e.target[0].value = '';
-    postAdd(text);
+    postAdd(e.target[0].value);
   }
 
   const inputChangeHandler = (e) => {
@@ -43,7 +40,7 @@ const Profile = ({ inputTemp, inputChange, posts, postAdd }) => {
         </div>
       </form>
       <div className={styles.posts}>
-        {posts.map((p) => <Post username={p.username} timeAgo={p.timeAgo} postText={p.postText}/>)}
+        {posts.map((p) => <Post username={p.username} timeAgo={p.timeAgo} postText={p.postText} key={p.id}/>)}
       </div>
   </div>
   );

@@ -4,7 +4,7 @@ import style from './DialogItem.module.css'
 
 const DialogItem = (props) => {
   return(
-    <div className={style.dialogItem + ' ' + (props.id == 0 ? style.current : '')}>
+    <div className={style.dialogItem + ' ' + (props.id === 0 ? style.current : '')}>
       <NavLink to={`/dialogs/${props.id}`}>{props.name}</NavLink>
     </div>
   )

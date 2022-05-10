@@ -23,7 +23,7 @@ or
 50 lvl
 
 
-FontAwesomeIcons, ProfileContainer, DialogsContainer, Context, Styling, React-Redu
+React-Redux, UsersPage,
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -50,3 +50,6 @@ dialogsPage: {
     {name: 'Kuplinov', id: 5}, messages: [{user: 'Kuplinov', content: 'HiK'}, {user: 'Me', content: 'Hi'},  {user: 'Kuplinov', content: 'keks go play some valo6'}, {user: 'Me', content: 'ok'}] },
   ],
 },
+
+
+47 ep : connect походу подписывается на state, а не на то, что в него передали. Ссылка должна меняться у стейта, а не у dialogs, передающегося в props.

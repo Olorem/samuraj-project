@@ -31,22 +31,26 @@ const initStateDialogs = {
 };
 
 export const dialogsReducer = (state = initStateDialogs, action) => {
+  let tempState = {...state};
+
   switch (action.type) {
     case ADD_MESSAGE:
       let newMessage = {
         user: action.user || 'Me',
         content: action.content || 'bruh u posted cringe'
       };
-      state.dialogs[action.id || 0].messages.push(newMessage);
-      state.inputTemp = "";
+
+      tempState.dialogs = [...state.dialogs];
+      tempState.dialogs[action.id || 0].messages.push(newMessage);
+      tempState.inputTemp = "";
     break;
     
     case DIALOGS_INPUT_CHANGE:
-      state.inputTemp = action.text;
+      tempState.inputTemp = action.text;
     break;
 
     default: break;
   }
 
-  return state;
+  return tempState;
 }
