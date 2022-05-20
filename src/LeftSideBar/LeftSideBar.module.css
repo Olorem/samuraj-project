@@ -74,7 +74,10 @@
 
 .ava .description {
   position: relative;
+}
 
+.ava .description img {
+  width: 80px;
 }
 
 .ava .profile{

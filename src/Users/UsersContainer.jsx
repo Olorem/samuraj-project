@@ -1,18 +1,18 @@
 import { connect } from "react-redux";
-import { followAC, setUsersAC, unFollowAC } from "../BLL/usersReducer";
-import Users from "./Users";
-
+import { follow, setDisabled, setFetching, setPage, setPageSize, setTotalCount, setUsers, unfollow } from "../BLL/usersReducer";
+import UsersAnotherContainer from "./UsersAnotherContainer";
 
 let mapStateToProps = (state) => ({
-  users:      state.usersPage.users,
-  usersCount: state.usersPage.usersCount,
+  users:       state.usersPage.users,
+  totalCount:  state.usersPage.totalCount,
+  pageSize:    state.usersPage.pageSize,
+  currentPage: state.usersPage.currentPage,
+  isFetching:  state.usersPage.isFetching,
+  buttonsInProgress: state.usersPage.buttonsInProgress,
+  user:        state.profilePage.user,      //ayayay
 });
 
-let mapDispatchToProps = (dispatch) => ({
-  follow:   (id)    => dispatch(followAC(id)),
-  unfollow: (id)    => dispatch(unFollowAC(id)),
-  setUsers: (users) => dispatch(setUsersAC(users)),
-});
 
-
-export const UsersContainer =  connect(mapStateToProps, mapDispatchToProps)(Users);
+export const UsersContainer = connect(mapStateToProps, 
+  {  follow,  unfollow,  setUsers,  setPage,  setTotalCount,  setPageSize,  setFetching, setDisabled }
+)(UsersAnotherContainer);

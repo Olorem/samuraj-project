@@ -1,29 +1,34 @@
-cards {
-  avaDesc {
-    font
-  }
-}
-
-rightSideBar {
-  likesState
-}
-
 header {
   input,
   grid,
   module
 }
 
-styles refactor
+profilePage {
+  cards {
+    avaDesc {
+      font
+    }
+  }
 
-dialogs
+  post {
+    likesComments
+  }
 
-or 
+  rightSideBar {
+    likesState
+  }
+}
 
-50 lvl
+usersPage {
+  userItem {
+    input,
+  }
+}
 
 
-React-Redux, UsersPage,
+
+axios, 56leve
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

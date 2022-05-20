@@ -1,45 +1,39 @@
-import { addPostActionCreator, inputChangeActionCreator } from "../BLL/profileReducer";
+import { addPost, inputChange, setUser } from "../BLL/profileReducer";
 import Profile from "./Profile";
 import { connect } from "react-redux";
+import React from "react";
+import { withRouter } from "react-router-dom";
+import { apiGetProfile } from "../DAL/api";
 
-// const ProfileContainer = () => {
-//   // const [post, setPost]
-  
-//   return (
-//       <storeContext.Consumer>
-//         { store => {
-          
-//           const postAdd = (text) => {
-//             store.dispatch( addPostActionCreator(text) );
-//           }
-        
-//           const inputChange = (text) => {
-//             store.dispatch( inputChangeActionCreator(text) )
-//           }
 
-//           return <Profile inputChange={inputChange} inputTemp={store.getState().profilePage.inputTemp} posts={store.getState().profilePage.postsD} postAdd={postAdd}/> 
-          
-//           }
-//         }
-       
-//       </storeContext.Consumer>
-//   );
-// }
+class ProfileAnotherContainer extends React.Component {
+
+  componentDidMount() {
+      apiGetProfile(this.props.match.params.userID)
+      .then( (rdata) => {
+        console.log(rdata);
+
+        // this.props.method();
+        this.props.setUser(rdata);
+
+        console.log("Mount");
+        })
+  }
+
+  render() {
+    return(<Profile {...this.props}/>)
+  }
+}
 
 let mapStateToProps = (state) => ({
   inputTemp: state.profilePage.inputTemp,
-  posts: state.profilePage.postsD
+  posts: state.profilePage.postsD,
+  user: state.profilePage.user,
 });
 
-let mapDispatchToProps = (dispatch) => ({
-  inputChange: (text) => {
-    dispatch( inputChangeActionCreator(text) );
-  },
-  postAdd: (text) => {
-    dispatch( addPostActionCreator(text) );
-  }
-});
-
-let ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile); 
+let mapDispatchToProps = {
+  inputChange, addPost, setUser,
+};
+let ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileAnotherContainer)); 
 
 export default ProfileContainer

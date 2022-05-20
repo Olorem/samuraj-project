@@ -1,24 +1,44 @@
 import UserItem from "./UserItem/UserItem"
 import React from "react";
+import style from "./Users.module.css"
+import Preloader from "../Preloader/Preloader"
+import LeftSideBar from "../LeftSideBar/LeftSideBar";
 
-// {id: 0, follow: false, username: 'Eric Jonson', status: "just now", location: "USA, California"}
+let Users = (props) => {
 
-// const Users = ({ users, usersCount, follow, unfollow, setUsers }) => {
-const Users = (props) => {
-  if(props.users.length === 0){
-    props.setUsers([
-      {id: 0, follow: false, username: 'Eric Jonson', status: "AMAZING status text, its really great. Just very nice status :)", location: "USA, California"},
-      {id: 1, follow: false, username: "Gigachad Based", status: "empty status pog pog", location: "Russia, Kremlin"}, 
-      {id: 2, follow: false, username: "Pepe frog", status: "im a proud Billy Harrington lifer", location: "Heaven, Earth"}
-    ]);
+
+
+  let pages = new Array(Math.ceil(props.totalCount / props.pageSize));
+  for(let i = 1; i <= pages.length && i <= 10; i++){
+    pages[i] = i;
   }
-  
-  return (
-    <div className="Users">
-      { props.users.map( (u) => UserItem({...u, follow: props.follow, unfollow: props.unfollow}) ) }
 
-    </div>
-  )
+  return (<>
+      <LeftSideBar user={props.user}/>
+
+      <div className={style.users} >
+        { pages.map( (page) => 
+            <button 
+              className={page === props.currentPage && style.currentPage} 
+              onClick={() => props.clickHandler(page)}>
+                {page} 
+            </button>)
+        }
+        {props.isFetching && <Preloader />}
+        { props.users.map( (u) => 
+          UserItem({
+            ...u, 
+            follow: props.follow, 
+            unfollow: props.unfollow, 
+            key: u.id,
+            setFetching: props.setFetching,
+            isDisabled: props.buttonsInProgress.includes(u.id),
+            setDisabled: props.setDisabled,
+          }) 
+        )}
+        {/* <button>GET MORE</button> */}
+      </div></>
+    )
 }
 
 export default Users;

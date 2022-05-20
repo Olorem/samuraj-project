@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
+  console.log(props);
   return (
     <div className="headerWrapper">
       <div className="header">
         <NavLink to="/profile">Home</NavLink>
         <NavLink to="/dialogs">Messages</NavLink>
         <NavLink to="/users">Users</NavLink>
-        <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md">Music</a>
+        {props.isAuthorized ? <NavLink to="/profile">U are authorized</NavLink> : <NavLink to="/login">Login</NavLink> }
       </div>
     </div>
   );
