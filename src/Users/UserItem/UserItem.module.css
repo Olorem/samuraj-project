@@ -57,7 +57,7 @@
 
 .userPicture button:disabled {
   opacity: 0.4;
-  /* background-color: #111; */
+  background-color: #111;
 }
 
 .userPicture button:hover {

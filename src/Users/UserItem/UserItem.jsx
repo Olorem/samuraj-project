@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import { apiFollow, apiUnFollow } from '../../DAL/api';
 import style from './UserItem.module.css'
 
 
@@ -7,24 +6,13 @@ import style from './UserItem.module.css'
 const UserItem = (props) => {
   
   let clickHandler = () => {
-    props.setDisabled(true, props.id);
-
-    if(props.following) {
-      apiUnFollow(props.id).then(r => {
-        props.setDisabled(false, props.id);
-        r.resultCode === 0 ? props.unfollow(props.id) : console.log(r) 
-      }); 
-    } 
-    else {
-      apiFollow(props.id).then( r => {
-        props.setDisabled(false, props.id);
-        if(r.resultCode === 0)
-          props.follow(props.id)
-      })
-    }
+    if(props.following)
+      props.unFollowThunkCreator(props.id);
+    else
+      props.followThunkCreator(props.id);
   }
 
-  console.log(props)
+  // console.log(props)
 
   return(
     <div className={style.userItem} >

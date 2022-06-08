@@ -26,9 +26,16 @@ usersPage {
   }
 }
 
+leftSideBar {
+  clock
+}
 
+ezz:
+thunk{getUsers, follow, unfollow, getProfile, auth}, redirectHOC, compose, lilLocalState, 
 
-axios, 56leve
+todotodooo
+recompose (leftSideBar <=> profile <=> home), styling, variableNames, apiRefactor, clock, auth->thunk, onEnter
+
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

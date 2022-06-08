@@ -3,6 +3,8 @@ import style from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogItem"
 import Message from "./Message/Message";
 import React from "react";
+import LeftSideBar from "../LeftSideBar/LeftSideBar";
+import { Redirect } from "react-router-dom";
 
 // const testMessages = [['whats up', 'how is ur site?', 'ayooooooooo'],
 // ['pepega lulw', 'kekw', 'omegalul'],
@@ -13,8 +15,7 @@ import React from "react";
 
 
 
-
-const Dialogs = ({ dialogs, addMessage, inputTemp, inputChange }) => {
+const Dialogs = ({ dialogs, addMessage, inputTemp, inputChange, user, isAuth }) => {
   // let textRef = React.createRef();
 
   function submitHandler(e) {
@@ -30,8 +31,13 @@ const Dialogs = ({ dialogs, addMessage, inputTemp, inputChange }) => {
     
   }
 
-  return(
+  // if(!isAuth) return <Redirect to='/login'/>
+
+  return(<>
+    <LeftSideBar user={user}/>
+
     <div className={style.dialogs}>
+      
       <div className={style.users}>
         { dialogs.map((item, index) => <DialogItem name={item.name} id={index} />)}
       </div>
@@ -45,7 +51,7 @@ const Dialogs = ({ dialogs, addMessage, inputTemp, inputChange }) => {
         </form>
         
       </div>
-    </div>
+    </div></>
   );
 }
 

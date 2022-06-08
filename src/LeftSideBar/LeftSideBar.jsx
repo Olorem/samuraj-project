@@ -1,16 +1,44 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import style from "./LeftSideBar.module.css"
 import defaultPic from "../assets/img/defaultUser.jpg";
 
-
+// потенциально переделать на хуках
 const tempStyleForIcons = {color: "#dc4734", opacity: '0.8', width: '1.5rem', height: '1.3rem'};
 
-const LeftSideBar = ({user}) => {
+// const LeftSideBar = ({ user }) => {
+class LeftSideBar extends React.Component {
+  state = {
+    editMode: false,
+    localStatus: this.props.user.status
+  }
+  componentDidMount() {
+    console.log(this.props);
+    this.setState({localStatus: this.props.user.status})
+  }
 
-  const [currentData, setCurrentData] = useState('error');
+  componentDidUpdate(prps, stt){
+    if(prps !== this.props)
+      this.setState({localStatus: this.props.user.status})
+  }
+  
+  statusClickHandler (isEditing) {
+    this.setState({
+      editMode: isEditing,
+    })
+    if(!isEditing)
+      this.props.updateStatus(this.state.localStatus);
+  }
+
+  statusChangeHandler = (e) => {
+    this.setState({ localStatus: e.currentTarget.value });
+  }
+
+  // const [currentData, setCurrentData] = useState('error');
   // setInterval(() => setCurrentData(new Date().toLocaleString()), 1000);
-
-  return (
+  render () {
+    let user = this.props.user;
+    // console.log(this.state);
+    return (
     <div className='left-side-bar'>
       <div className={style.card + " " + style.ava}>
         <div className={style.banner}>
@@ -22,7 +50,17 @@ const LeftSideBar = ({user}) => {
           <div className={style.subtitle}> 
             <h6>{user.fullName}</h6>
             {/* <p>Any one can join with but Social network us if you want Any one can join with us if you want </p> */}
-            <p>{user.aboutMe}</p>
+            { this.state.editMode 
+              ? <input 
+                autoFocus={true} 
+                onBlur={this.statusClickHandler.bind(this, false)}
+                // onKeyPress={(e) => e.key === 'Enter' && this.statusClickHandler.bind(this, false)}
+                type="text"
+                value={this.state.localStatus}
+                onChange={this.statusChangeHandler} />
+              : <p onClick={this.statusClickHandler.bind(this, true)}>{this.state.localStatus}</p>
+            // вынести в отдельную компоненту  
+            }
         </div>
         </div>
       </div>
@@ -55,10 +93,10 @@ const LeftSideBar = ({user}) => {
       <div className={style.card}>
         <h4>Page You May Like</h4>
         
-        { currentData }
+        { /*currentData*/ }
       </div>
     </div>
-  );
+  )};
 }
 
 export default LeftSideBar

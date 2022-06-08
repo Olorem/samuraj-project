@@ -1,21 +1,10 @@
+import { apiGetProfile, apiGetStatus, apiUpdateStatus } from "../DAL/api";
+
 const PROFILE_INPUT_CHANGE = "PROFILE_INPUT_CHANGE";
 const ADD_POST = "ADD_POST";
 const SET_USER = "SET_USER";
+const SET_STATUS = "SET_STATUS";
 
-export const addPost = postText => ({
-    type: ADD_POST,
-    post: { postText }
-});
-
-export const inputChange = (text) => ({
-    type: PROFILE_INPUT_CHANGE,
-    text
-});
-
-export const setUser = user => ({
-  type: SET_USER,
-  user
-});
 
 const initStateProfile = {
   postsD: [
@@ -53,12 +42,61 @@ export const profileReducer = (state = initStateProfile, action) => {
     break;
 
     case SET_USER:
-      state.user = {...action.user}
+      state.user = {...action.user, status: "agaaaa naibal"}
     break;
     
+    case SET_STATUS:
+      state.user = {...state.user, status: action.status};
+    break;
+
     default: break;
   }
 
   return state;
   
+}
+
+// Action Creators
+export const addPost = postText => ({
+  type: ADD_POST,
+  post: { postText }
+});
+
+export const inputChange = (text) => ({
+  type: PROFILE_INPUT_CHANGE,
+  text
+});
+
+export const setUser = user => ({
+  type: SET_USER,
+  user
+});
+
+export const setStatus = status => ({
+  type: SET_STATUS,
+  status
+});
+
+// Thunk Creators
+export const getProfileThunk = (id) => (dispatch) => {
+  apiGetProfile(id)
+  .then( (rdata) => {
+    dispatch(setUser(rdata));
+  })
+  .then(    
+    apiGetStatus
+  )
+  .then(r => {
+    dispatch(setStatus(r));
+
+    console.log("Mount");
+  })
+}
+
+export const updateStatusThunk = (status) => (dispatch) => {
+  apiUpdateStatus(status)
+  .then( r => {
+    if(r.resultCode === 0)
+      dispatch(setStatus(status));
+  })
 }

@@ -13,6 +13,8 @@ let Users = (props) => {
     pages[i] = i;
   }
 
+  // if(!props.isAuth) return <Redirect to='/login'/>
+
   return (<>
       <LeftSideBar user={props.user}/>
 
@@ -28,12 +30,11 @@ let Users = (props) => {
         { props.users.map( (u) => 
           UserItem({
             ...u, 
-            follow: props.follow, 
-            unfollow: props.unfollow, 
             key: u.id,
             setFetching: props.setFetching,
             isDisabled: props.buttonsInProgress.includes(u.id),
-            setDisabled: props.setDisabled,
+            followThunkCreator: props.followThunkCreator,
+            unFollowThunkCreator: props.unFollowThunkCreator
           }) 
         )}
         {/* <button>GET MORE</button> */}

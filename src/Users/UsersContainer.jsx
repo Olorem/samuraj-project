@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
-import { follow, setDisabled, setFetching, setPage, setPageSize, setTotalCount, setUsers, unfollow } from "../BLL/usersReducer";
+import { compose } from "redux";
+import { followThunkCreator, getUsersThunkCreator, setDisabled, setFetching, setPage, setPageSize, setTotalCount, setUsers, unFollowThunkCreator } from "../BLL/usersReducer";
+import withAuthRedirect from "../HOC/withAuthRedirect";
 import UsersAnotherContainer from "./UsersAnotherContainer";
 
 let mapStateToProps = (state) => ({
@@ -10,9 +12,18 @@ let mapStateToProps = (state) => ({
   isFetching:  state.usersPage.isFetching,
   buttonsInProgress: state.usersPage.buttonsInProgress,
   user:        state.profilePage.user,      //ayayay
+  isAuth: state.authReducer.isAuthorized,
 });
 
 
-export const UsersContainer = connect(mapStateToProps, 
-  {  follow,  unfollow,  setUsers,  setPage,  setTotalCount,  setPageSize,  setFetching, setDisabled }
+export const UsersContainer = compose(
+  connect(mapStateToProps, 
+    {  setUsers,  setPage,  setTotalCount,  setPageSize,  
+      setFetching, setDisabled, getUsersThunkCreator, 
+      followThunkCreator, unFollowThunkCreator }
+  ),
+  withAuthRedirect,
 )(UsersAnotherContainer);
+// connect(mapStateToProps, 
+//   {  setUsers,  setPage,  setTotalCount,  setPageSize,  setFetching, setDisabled, getUsersThunkCreator, followThunkCreator, unFollowThunkCreator }
+// )(withAuthRedirect(UsersAnotherContainer));

@@ -1,21 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setAuthUsersData } from "../BLL/authReducer";
-import { apiAuthMe } from "../DAL/api";
+import { authMeThunk } from "../BLL/authReducer";
 import Header from "./Header";
 
 class HeaderCon extends React.Component {
   componentDidMount() {
-      apiAuthMe()
-      .then( (r) => {
-        
-        if(r.resultCode === 0) {
-          console.log(r);
-          this.props.setAuthUsersData(r.data.email, r.data.id, r.data.login);
-        }
-        else throw console.error("response result is not 0");
-      });
     console.log(this.props);
+    this.props.authMeThunk();
+    
   }
   render () {
     return(
@@ -24,4 +16,4 @@ class HeaderCon extends React.Component {
   };
 }
 
-export default connect((state) => ({ isAuthorized: state.authReducer.isAuthorized }), { setAuthUsersData })(HeaderCon);
+export default connect((state) => ({ isAuthorized: state.authReducer.isAuthorized }), { authMeThunk })(HeaderCon);

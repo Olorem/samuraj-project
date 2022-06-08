@@ -9,12 +9,12 @@ import { useHistory } from "react-router-dom";
   
 
 
-const Profile = ({ inputTemp, inputChange, posts, addPost, user, match }) => {
+const Profile = ({ inputTemp, inputChange, posts, addPost, user, match, updateStatusThunk }) => {
 // const Profile = (props) => {
   // const [post, setPost]
 
   // const history = useHistory();
-  console.log(match);
+  // console.log(match);
 
   const postAddHandler = (e) => {
     e.preventDefault();
@@ -26,11 +26,11 @@ const Profile = ({ inputTemp, inputChange, posts, addPost, user, match }) => {
   }
   // let inputRef = React.createRef();
 
-
+  // if(!isAuth) return <Redirect to='/login'/>
 
   return (
   <>
-    <LeftSideBar user={user}/>
+    <LeftSideBar user={user} updateStatus={updateStatusThunk}/>
     <div className={styles.profile}>
         
         <form 

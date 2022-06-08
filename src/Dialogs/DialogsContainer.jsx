@@ -2,6 +2,8 @@
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 import { addMessageActionCreator, textChangeActionCreator } from "../BLL/dialogsReducer";
+import withAuthRedirect from "../HOC/withAuthRedirect";
+import { compose } from "redux";
 
 // const testMessages = [['whats up', 'how is ur site?', 'ayooooooooo'],
 // ['pepega lulw', 'kekw', 'omegalul'],
@@ -39,6 +41,8 @@ import { addMessageActionCreator, textChangeActionCreator } from "../BLL/dialogs
 const mapStateToProps = (state) => ({
   dialogs: state.dialogsPage.dialogs,
   inputTemp: state.dialogsPage.inputTemp,
+  user: state.profilePage.user,
+  isAuth: state.authReducer.isAuthorized,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -47,7 +51,13 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+const DialogsContainer = compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withAuthRedirect,
+)(Dialogs);
+
+
+// connect(mapStateToProps, mapDispatchToProps)(withAuthRedirect(Dialogs));
 
 
 export default DialogsContainer
