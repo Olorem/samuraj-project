@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { compose } from "redux";
+import { updateStatusThunk } from "../BLL/profileReducer";
 import { followThunkCreator, getUsersThunkCreator, setDisabled, setFetching, setPage, setPageSize, setTotalCount, setUsers, unFollowThunkCreator } from "../BLL/usersReducer";
 import withAuthRedirect from "../HOC/withAuthRedirect";
 import UsersAnotherContainer from "./UsersAnotherContainer";
@@ -12,7 +13,7 @@ let mapStateToProps = (state) => ({
   isFetching:  state.usersPage.isFetching,
   buttonsInProgress: state.usersPage.buttonsInProgress,
   user:        state.profilePage.user,      //ayayay
-  isAuth: state.authReducer.isAuthorized,
+  isAuth:      state.authReducer.isAuthorized,
 });
 
 
@@ -20,7 +21,7 @@ export const UsersContainer = compose(
   connect(mapStateToProps, 
     {  setUsers,  setPage,  setTotalCount,  setPageSize,  
       setFetching, setDisabled, getUsersThunkCreator, 
-      followThunkCreator, unFollowThunkCreator }
+      followThunkCreator, unFollowThunkCreator, updateStatusThunk}
   ),
   withAuthRedirect,
 )(UsersAnotherContainer);

@@ -9,6 +9,9 @@ const ax = axios.create({
 
 export const authAPI = {
   me: () => ax.get(`/auth/me`).then(r => r.data),
+  login: (mail, pass, remember) => ax.post(`/auth/login?email=${mail}&password=${pass}&rememberMe=${remember}`).then(r => r.data),
+  logout: () => ax.post(`/auth/logout`).then(r => r.data),
+
 }
 
 export const usersAPI = {
@@ -23,12 +26,14 @@ export const profileAPI = {
   updateStatus: (status)  => ax.put(`/profile/status/`, { status }).then(r => r.data), 
 }
 
-export const apiGetUsers   = usersAPI.getUsers;
-export const apiGetProfile = profileAPI.getProfile;
-export const apiFollow     = usersAPI.follow;
-export const apiUnFollow   = usersAPI.unfollow;
-export const apiGetStatus   = profileAPI.getStatus;
+export const apiGetUsers     = usersAPI.getUsers;
+export const apiGetProfile   = profileAPI.getProfile;
+export const apiFollow       = usersAPI.follow;
+export const apiUnFollow     = usersAPI.unfollow;
+export const apiGetStatus    = profileAPI.getStatus;
 export const apiUpdateStatus = profileAPI.updateStatus;
+export const apiLogin        = authAPI.login;
+export const apiLogout       = authAPI.logout;
 // refactor that ↑
 
 

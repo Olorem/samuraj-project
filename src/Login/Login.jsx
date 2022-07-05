@@ -1,9 +1,31 @@
 import React from "react";
 import { Form, Field } from 'react-final-form'
+import { loginThunk, logoutThunk } from "../BLL/authReducer";
+import { connect } from "react-redux";
+import { compose } from "redux";
 
-const Login = (props) => (<div>
-    <Form onSubmit={(smth) => console.log(smth)}>
+// class LoginContainer extends React.Component {
+//   login(mail, pass, r) {
+
+//   }
+  
+//   componentDidMount() {
+//     console.log("DID MOUNT");
+//   }
+//   render () {
+//     return <Login {...this.props}/>
+//   };
+// }
+
+const Login = function(props) {
+  console.log("Login", props);
+  return (<div>
+    {!props.isAuth ? 
+    <Form onSubmit={function(data) {
+      props.loginThunk(data.login, data.password, data.remember || false);
+      }}>
     {function(props) {
+      // console.log(props.values);
       return (
         <form onSubmit={props.handleSubmit}>
           <h2>Login</h2>
@@ -13,6 +35,7 @@ const Login = (props) => (<div>
 
           <Field
             name="password"
+            type="password"
             render={({ input, meta }) => (
               <div>
                 <input type="text" {...input} placeholder="password"/>
@@ -30,6 +53,13 @@ const Login = (props) => (<div>
         </form>
       )}}
     </Form>
+    :
+    <button onClick={e => props.logoutThunk() }>Logout</button> }
   </div>)
+}
 
-export default Login
+// const LoginWithWrap = compose(
+//   connect(state => ({isAuth: state.authReducer.isAuthorized}), {loginThunk}),
+// )(Login);
+
+export default connect(state => ({isAuth: state.authReducer.isAuthorized}), {loginThunk, logoutThunk})(Login)

@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import store from './BLL/redux-store';
 import { UsersContainer } from './Users/UsersContainer';
 import HeaderContainer from './Header/HeaderContainer';
-import Login from './Login/Login';
+import LoginContainer from './Login/Login';
 
 
 
@@ -25,9 +25,9 @@ function App() {
             <ProfileContainer/>
           </Route>
           {/* <Route path="/home" component={Home}/> */}
-          <Route path="/dialogs" render={() => <DialogsContainer  />}/>
-          <Route path="/users" render={() => <UsersContainer  />}/>
-          <Route path="/login" render={() => <Login  />}/>
+          <Route path="/dialogs"  render={() => <DialogsContainer  />}/>
+          <Route path="/users"    render={() => <UsersContainer  />}/>
+          <Route path="/login"    render={() => <LoginContainer  />}/>
           <RightSideBar />
           <Footer />
           </div>

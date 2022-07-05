@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { addMessageActionCreator, textChangeActionCreator } from "../BLL/dialogsReducer";
 import withAuthRedirect from "../HOC/withAuthRedirect";
 import { compose } from "redux";
+import { updateStatusThunk } from "../BLL/profileReducer";
 
 // const testMessages = [['whats up', 'how is ur site?', 'ayooooooooo'],
 // ['pepega lulw', 'kekw', 'omegalul'],
@@ -48,6 +49,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   addMessage: (user, content, id) => dispatch(addMessageActionCreator(user, content, id)),
   inputChange: (text) => dispatch( textChangeActionCreator(text) ),
+  // updateStatusThunk: updateStatusThunk(), // doesnt work!! fix
+  updateStatusThunk
 })
 
 

@@ -16,7 +16,7 @@ let Users = (props) => {
   // if(!props.isAuth) return <Redirect to='/login'/>
 
   return (<>
-      <LeftSideBar user={props.user}/>
+      <LeftSideBar user={props.user} updateStatus={props.updateStatusThunk}/>
 
       <div className={style.users} >
         { pages.map( (page) => 

@@ -94,9 +94,10 @@ export const getProfileThunk = (id) => (dispatch) => {
 }
 
 export const updateStatusThunk = (status) => (dispatch) => {
-  apiUpdateStatus(status)
-  .then( r => {
-    if(r.resultCode === 0)
-      dispatch(setStatus(status));
-  })
+  // temporary disabled -----------
+  // apiUpdateStatus(status)
+  // .then( r => {
+  //   if(r.resultCode === 0)
+  //     dispatch(setStatus(status));
+  // })
 }

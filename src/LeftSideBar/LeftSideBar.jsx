@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from "./LeftSideBar.module.css"
 import defaultPic from "../assets/img/defaultUser.jpg";
+import { LsbInputField } from "./LsbInputField";
 
 // потенциально переделать на хуках
 const tempStyleForIcons = {color: "#dc4734", opacity: '0.8', width: '1.5rem', height: '1.3rem'};
@@ -27,6 +28,7 @@ class LeftSideBar extends React.Component {
     })
     if(!isEditing)
       this.props.updateStatus(this.state.localStatus);
+    console.log(this.props.updateStatus);
   }
 
   statusChangeHandler = (e) => {
@@ -51,13 +53,13 @@ class LeftSideBar extends React.Component {
             <h6>{user.fullName}</h6>
             {/* <p>Any one can join with but Social network us if you want Any one can join with us if you want </p> */}
             { this.state.editMode 
-              ? <input 
-                autoFocus={true} 
-                onBlur={this.statusClickHandler.bind(this, false)}
-                // onKeyPress={(e) => e.key === 'Enter' && this.statusClickHandler.bind(this, false)}
-                type="text"
-                value={this.state.localStatus}
-                onChange={this.statusChangeHandler} />
+              ? 
+              <LsbInputField 
+                onSubmit={() => console.log(1003)} 
+                click={console.log/*this.statusClickHandler.bind(this, false)*/}
+                val={this.state.localStatus}
+                change={this.statusChangeHandler.bind(this)}
+              />
               : <p onClick={this.statusClickHandler.bind(this, true)}>{this.state.localStatus}</p>
             // вынести в отдельную компоненту  
             }
@@ -67,7 +69,7 @@ class LeftSideBar extends React.Component {
       <div className={style.card}>
         <h4>{user.fullName}</h4>
         {/* <div className={style.claster}>I Don’t know how? But i believe that it is possible one day if i stay with my dream all time</div> */}
-        <div className={style.claster}>{user.lookingForAJobDescription}</div>
+        <div className={style.claster}>{user.lookingForAJobDescription || "no job?"}</div>
         <div className={style.claster} >
           <div><i className="fa fa-briefcase" style={tempStyleForIcons}></i> Web Developer</div>
           <div><i className="fa fa-home" style={tempStyleForIcons}></i> Melbourne, Australia</div>

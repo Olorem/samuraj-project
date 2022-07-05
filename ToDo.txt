@@ -1,3 +1,11 @@
+
+
+ezz:
+FinalForm, loginAP 
+
+todotodooo
+recompose (leftSideBar <=> profile <=> home), styling, variableNames, apiRefactor, clock, auth->thunk, onEnter, fix on dialogsPage,
+
 header {
   input,
   grid,
@@ -29,13 +37,6 @@ usersPage {
 leftSideBar {
   clock
 }
-
-ezz:
-thunk{getUsers, follow, unfollow, getProfile, auth}, redirectHOC, compose, lilLocalState, 
-
-todotodooo
-recompose (leftSideBar <=> profile <=> home), styling, variableNames, apiRefactor, clock, auth->thunk, onEnter
-
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
