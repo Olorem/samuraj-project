@@ -42,7 +42,7 @@ export const profileReducer = (state = initStateProfile, action) => {
     break;
 
     case SET_USER:
-      state.user = {...action.user, status: "agaaaa naibal"}
+      state.user = {...action.user, status: "status not loaded yet"}
     break;
     
     case SET_STATUS:

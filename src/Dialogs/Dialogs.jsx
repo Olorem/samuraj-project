@@ -50,17 +50,6 @@ const Dialogs = ({ dialogs, addMessage, inputTemp, inputChange, user, isAuth, up
           {props => (
             <form onSubmit={props.handleSubmit} >
 
-              {
-              console.log(maxSymbols10)
-              /* <input
-                value={inputTemp}
-                onChange={textChangeHandler} ></input> */}
-
-              {/* <Field
-                name="tempMessage"
-                type="text"
-                component="input"
-              /> */}
               <Field
                 name="tempMessage"
                 type="text"

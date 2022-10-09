@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { getRandomPic } from '../../utils/getRandomPic';
 import style from './UserItem.module.css'
 
 
@@ -19,7 +20,7 @@ const UserItem = (props) => {
       <div className={style.userPicture}>
         {/* <div ><img alt="" /></div> */}
 
-        <div><NavLink to={"/profile/" + props.id}><img src={props.smallPic || "https://picsum.photos/70/70"} 
+        <div><NavLink to={"/profile/" + props.id}><img src={props.smallPic || getRandomPic()} 
           onLoad={() => props.setFetching(false)}
           alt="" /></NavLink></div>
         <div> <button disabled={props.isDisabled} onClick={clickHandler}>{props.following ? "Unfollow" : "Follow"}</button></div>

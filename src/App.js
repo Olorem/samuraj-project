@@ -1,39 +1,55 @@
 import './App.css';
 import RightSideBar from './RightSideBar/RightSideBar';
-import Footer  from './Footer/Footer.jsx';
+import Footer from './Footer/Footer.jsx';
 import { BrowserRouter, Route } from 'react-router-dom';
 import ProfileContainer from './Profile/ProfileContainer';
 import DialogsContainer from './Dialogs/DialogsContainer';
 // import storeContext from './storeContext';
-import { Provider } from 'react-redux';
 import store from './BLL/redux-store';
 import { UsersContainer } from './Users/UsersContainer';
 import HeaderContainer from './Header/HeaderContainer';
 import LoginContainer from './Login/Login';
+import { useEffect } from 'react';
+import { connect } from "react-redux";
+import { initThunk } from './BLL/appReducer';
+import Preloader from './Preloader/Preloader';
+
 
 
 
 // function App({ state, addPost, inputChangeHandler }) {
-function App() {
+const App = props => {
+
+  useEffect(() => {
+    props.initThunk();
+  }, []);
+
+  // useEffect(() => console.log("INITED??",props),[props]);
+  console.log(props);
+  // console.log(process.env);
+  
+
   return (
     <BrowserRouter>
-      <Provider store={store}>
-        <div className="App">
+      { props.inited ? 
+      <div className="App">
         <HeaderContainer />
-          <div className="app-wrapper">
+        <div className="app-wrapper">
           <Route path="/profile/:userID?">
-            <ProfileContainer/>
+            <ProfileContainer />
           </Route>
           {/* <Route path="/home" component={Home}/> */}
-          <Route path="/dialogs"  render={() => <DialogsContainer  />}/>
-          <Route path="/users"    render={() => <UsersContainer  />}/>
-          <Route path="/login"    render={() => <LoginContainer  />}/>
+          <Route path="/dialogs" render={() => <DialogsContainer />} />
+          <Route path="/users" render={() => <UsersContainer />} />
+          <Route path="/login" render={() => <LoginContainer />} />
           <RightSideBar />
           <Footer />
-          </div>
         </div>
-      </Provider>
-    </BrowserRouter>);
+      </div>
+      :
+      <Preloader />}
+    </BrowserRouter>
+  );
 }
 
-export default App;
+export default connect(state => ({ inited: state.app.isInitialized }), { initThunk })(App);

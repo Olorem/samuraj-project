@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./Post.module.css"
+import {getRandomPic} from "./../../utils/getRandomPic.js";
 
 const Post = (props) => {
 
@@ -30,7 +31,7 @@ const Post = (props) => {
       <div className={styles.content}>
         <div className={styles.text}>{props.postText}</div>
         <div className={styles.imgs}>
-        <img src="https://picsum.photos/500/300" alt="banner" />
+        <img src={getRandomPic(500, 300)} alt="banner" />
       </div>
         {/* <img src="https://htmldemo.hasthemes.com/adda/adda/assets/images/post/post-1.jpg" alt="banner" /> */}
       </div>

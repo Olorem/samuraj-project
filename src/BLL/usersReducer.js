@@ -70,8 +70,8 @@ export const usersReducer = (state = initStateUsers, action) => {
 }
 
 // Action Creators
- const follow        = (userId)        => ({ type: FOLLOW,    id: userId });
- const unfollow      = (userId)        => ({ type: UNFOLLOW,  id: userId });
+ const follow              = (userId)        => ({ type: FOLLOW,    id: userId });
+ const unfollow            = (userId)        => ({ type: UNFOLLOW,  id: userId });
 export const setUsers      = (users)         => ({ type: SET_USERS, users: users });
 export const setPage       = (page)          => ({ type: SET_PAGE,  page: page });
 export const setTotalCount = (totalCount)    => ({ type: SET_COUNT, totalCount: totalCount });

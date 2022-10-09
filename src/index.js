@@ -4,6 +4,7 @@ import store from "./BLL/redux-store";
 import React from 'react';
 import reactDom from 'react-dom';
 import App from './App';
+import { Provider } from 'react-redux';
 
 store.dispatch({
   type: "ADD-POST", 
@@ -18,7 +19,9 @@ store.dispatch({
   reactDom.render(
     <React.StrictMode>
       {/* <App state={store._state} addPost={store.addPost} inputChangeHandler={store.inputChangeHandler}/> */}
-      <App state={ store.getState() } dispatch={ store.dispatch.bind(store) }  />
+      <Provider store={store}>
+        <App state={ store.getState() } dispatch={ store.dispatch.bind(store) }  />
+      </Provider>
     </React.StrictMode>,
     document.getElementById('root')
   );

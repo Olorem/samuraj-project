@@ -35,7 +35,8 @@ usersPage {
 }
 
 leftSideBar {
-  clock
+  clock,
+  inputValidation
 }
 
 
