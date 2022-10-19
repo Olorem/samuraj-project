@@ -26,7 +26,8 @@ const App = props => {
 
   // useEffect(() => console.log("INITED??",props),[props]);
   console.log(props);
-  // console.log(process.env);
+  //  console.log(process.env);
+  //  console.log(process.env.REACT_APP_API_KEY)
   
 
   return (
