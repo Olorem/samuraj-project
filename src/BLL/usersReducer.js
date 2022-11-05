@@ -17,7 +17,7 @@ const initStateUsers = {
   //   {id: 2, following: false, username: "Pepe frog", status: "heh", location: "Swamp"}
    ],
   totalCount: 0,
-  pageSize: 3,
+  pageSize: 10,
   currentPage: 1,
   isFetching: true,
   buttonsInProgress: [],

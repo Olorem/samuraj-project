@@ -14,6 +14,7 @@ const initStateProfile = {
   ],
   inputTemp: "",
   user: { 
+    userID: null,
     fullName: "Eric Jonson", 
     aboutMe: "Any one can join with but Social network us if you want Any one can join with us if you want",
     lookingForAJobDescription: "I Don’t know how? But i believe that it is possible one day if i stay with my dream all time",
@@ -43,6 +44,7 @@ export const profileReducer = (state = initStateProfile, action) => {
 
     case SET_USER:
       state.user = {...action.user, status: "status not loaded yet"}
+      //console.log("profileState after setState", state)
     break;
     
     case SET_STATUS:

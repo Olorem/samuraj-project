@@ -8,6 +8,12 @@ class UsersAnotherContainer extends React.Component {
   componentDidMount(props) {
     console.log(this.props);
     this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
+    if(this.props.user && this.props.user.userID) {
+      this.props.getProfileThunk(this.props.user.userID);
+      console.log("userID in usersPage", this.props.user.userID);
+      console.log("user in usersPage", this.props.user);
+    }
+    console.log("this", this)
     console.log("didMount");
   }
   

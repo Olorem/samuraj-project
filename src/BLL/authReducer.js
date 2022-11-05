@@ -1,5 +1,6 @@
 import { authAPI } from "../DAL/api";
 import { FORM_ERROR } from "final-form";
+import { setUser } from "./profileReducer";
 // action types
 const SET_AUTH_USERS_DATA = "SET_AUTH_USERS_DATA";
 const LOGIN = "LOGIN";
@@ -15,11 +16,20 @@ const initStateUsers = {
   submitError: null
 };
 
+let temp_user = { 
+  fullName: "Pepe Chillson", 
+  aboutMe: "Any one can pepechill with me if you want bloodtrail",
+  lookingForAJobDescription: "No job?",
+  photos: { small: "https://htmldemo.hasthemes.com/adda/adda/assets/images/profile/profile-midle-1.jpg"}
+}
+
 // Reducer
 export const authReducer = (state = initStateUsers, action) => {
   switch (action.type) {
     case SET_AUTH_USERS_DATA:
-      state = { ...state, ...action, isAuthorized: true };
+      state = { ...state, ...action };
+      console.log("action", action);
+      console.log("state", state);
       console.log("auth data has been set");
       break;
 
@@ -43,7 +53,7 @@ export const authReducer = (state = initStateUsers, action) => {
 }
 
 // Action Creators 
-export const setAuthUsersData = (email, id, login) => ({ email, id, login, type: SET_AUTH_USERS_DATA });
+export const setAuthUsersData = (email, id, login, isAuthorized = true) => ({ email, id, login, isAuthorized, type: SET_AUTH_USERS_DATA });
 export const login = (email, password, rememberMe) => ({ email, password, rememberMe, type: LOGIN });
 export const logout = () => ({ type: LOGOUT });
 export const setSubmitError = (error) => ({ type: SUBMIT_ERROR, error});
@@ -54,14 +64,17 @@ export const authMeThunk = () => (dispatch) => {
     .then((r) => {
       console.log(r);
       if (r.resultCode === 0) {
-        console.log(r);
         dispatch(setAuthUsersData(r.data.email, r.data.id, r.data.login));
       }
       else {
         // throw console.error("AUTH ME response result is not 0");
-        console.log("ALO ZAREGAISYA");
+        console.log("LOGIN/REGISTER PLS");
       }
-    });
+    })
+    /*.then(r => {
+      console.log("NEW THEN", r);
+      dispatch(setUser(temp_user));
+    });*/
 }
 
 export const loginThunk = (m, p, r) => (dispatch) => {
@@ -75,13 +88,14 @@ export const loginThunk = (m, p, r) => (dispatch) => {
         dispatch(setSubmitError(response.messages.length ? response.messages[0] : 'login response result is not 0' ));
       }
     })
-    .then(console.log);
+    //.then(r => dispatch(logoutThunk()));
+    //.then(console.log);
   // .then(() => console.log(123));
 }
 
 export const logoutThunk = () => (dispatch) => {
   authAPI.logout()
-    .then(dispatch(authMeThunk()))
+    //.then(dispatch(authMeThunk()))
     .then(dispatch(setAuthUsersData(null, null, null, false)));
   // .then(() => console.log(123));
 }
